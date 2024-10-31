@@ -23,7 +23,28 @@ class PartaiResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('nama_partai')
+                    ->label('Nama Partai')
+                    ->required(),
+                Forms\Components\TextInput::make('nomor_urut')
+                    ->label('Nomor Urut')
+                    ->numeric()
+                    ->required(),
+                Forms\Components\FileUpload::make('logo')
+                    ->label('Logo')
+                    ->image()
+                    ->disk('public') // Atur disk sesuai kebutuhan
+                    ->directory('logos')
+                    ->required(),
+                Forms\Components\TextInput::make('alamat_kantor')
+                    ->label('Alamat Kantor')
+                    ->required(),
+                Forms\Components\TextInput::make('ketua_partai')
+                    ->label('Ketua Partai')
+                    ->required(),
+                Forms\Components\TextInput::make('sekretaris_partai')
+                    ->label('Sekretaris Partai')
+                    ->required(),
             ]);
     }
 
@@ -31,7 +52,14 @@ class PartaiResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('nama_partai')->label('Nama Partai'),
+                Tables\Columns\TextColumn::make('nomor_urut')->label('Nomor Urut'),
+                Tables\Columns\ImageColumn::make('logo')->label('Logo'),
+                Tables\Columns\TextColumn::make('alamat_kantor')->label('Alamat Kantor'),
+                Tables\Columns\TextColumn::make('ketua_partai')->label('Ketua Partai'),
+                Tables\Columns\TextColumn::make('sekretaris_partai')->label('Sekretaris Partai'),
+                Tables\Columns\TextColumn::make('created_at')->label('Dibuat Pada')->dateTime(),
+                Tables\Columns\TextColumn::make('updated_at')->label('Diperbarui Pada')->dateTime(),
             ])
             ->filters([
                 //
