@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Caleg extends Model
 {
     /** @use HasFactory<\Database\Factories\CalegFactory> */
-    protected $table = 'caleg';
+    protected $table = 'calegs';
 
     protected $fillable = [
         'partai_id',

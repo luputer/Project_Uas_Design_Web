@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class DokumenCaleg extends Model
 {
     /** @use HasFactory<\Database\Factories\DokumenCalegFactory> */
-    protected $table = 'dokumen_caleg';
+    protected $table = 'dokumen_calegs';
 
     protected $fillable = [
         'caleg_id',

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Partai extends Model
 {
     /** @use HasFactory<\Database\Factories\PartaiFactory> */
-    protected $table = 'partai';
+    protected $table = 'partais';
 
     protected $fillable = [
         'nama_partai',
