@@ -49,9 +49,7 @@ class PersonalBrandResource extends Resource
             TextColumn::make('linkPortfolio')->label('Link Portfolio'),
             TextColumn::make('goal')->label('Goal'),
             TextColumn::make('phone')->label('Phone'),
-            ImageColumn::make('image')
-                ->label('Image')
-                ->url(fn ($record) => asset('storage/' . $record->image)), // Generate the full URL
+            ImageColumn::make('image')->label('Image')
         ])
         
         

@@ -56,117 +56,128 @@
                 </button>
             </div>
 
-            <!-- Main Content -->
-            <main class="container mx-auto px-4 py-8">
-                <!-- Hero Section -->
-                <section id="beranda" class="hero min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900">
-                    <div class="hero-content text-center">
-                        <div class="max-w-md">
-                            <h1 class="text-5xl font-bold text-gray-800 dark:text-white mb-4">Selamat Datang di Sekolah Kita</h1>
-                            <p class="py-6 text-gray-600 dark:text-gray-300">Tempat di mana bakat dan potensi berkembang</p>
-                            <a href="/daftar"  class="btn btn-primary" >Daftar Sekarang</a>
-                        </div>
-                    </div>
-                </section>
+<!-- Main Content -->
+<main class="container mx-auto px-4 py-8 w-full">
+    <!-- Hero Section -->
+    <div class="hero min-h-[70vh] bg-base-200">
+        <div class="hero-content flex-col lg:flex-row-reverse gap-8">
+            <div class="flex-1 grid grid-cols-2 gap-4 max-w-xl">
+                <img src="https://placehold.co/600x400/png" class="rounded-lg shadow-2xl" alt="Dashboard Preview 1" />
+                <img src="https://placehold.co/600x400/png" class="rounded-lg shadow-2xl" alt="Dashboard Preview 2" />
+            </div>
+            <div class="flex-1">
+                <h1 class="text-5xl font-bold">Welcome to Your Dashboard!</h1>
+                <p class="py-6">
+                    Experience the power of modern analytics and project management in one place. Start managing your projects more efficiently today.
+                </p>
+                <button class="btn btn-primary">Get Started</button>
+            </div>
+        </div>
+    </div>
 
-                <!-- About Section -->
-                <section id="tentang" class="py-16 bg-white dark:bg-gray-800 rounded-lg shadow-sm my-8">
-                    <div class="max-w-4xl mx-auto px-6">
-                        <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">Tentang Kami</h2>
-                        <div class="prose prose-lg max-w-none text-gray-600 dark:text-gray-300">
-                            <p class="mb-6">Sekolah Kita adalah lembaga pendidikan yang berdedikasi untuk mengembangkan potensi setiap siswa. Dengan kurikulum yang komprehensif dan fasilitas modern, kami berkomitmen untuk menciptakan lingkungan belajar yang inspiratif dan inovatif.</p>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>Didirikan sejak tahun 1990</li>
-                                <li>Akreditasi A</li>
-                                <li>Lebih dari 500 alumni sukses</li>
-                                <li>Staf pengajar berkualifikasi tinggi</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
+    <!-- About Section -->
+    <section id="tentang" class="py-16 bg-white dark:bg-gray-800 rounded-lg shadow-sm my-8">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">Tentang Kami</h2>
+            <div class="prose prose-lg max-w-none text-gray-600 dark:text-gray-300">
+                <p class="mb-6">
+                    Sekolah Kita adalah lembaga pendidikan yang berdedikasi untuk mengembangkan potensi setiap siswa. Dengan kurikulum yang komprehensif dan fasilitas modern, kami berkomitmen untuk menciptakan lingkungan belajar yang inspiratif dan inovatif.
+                </p>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>Didirikan sejak tahun 1990</li>
+                    <li>Akreditasi A</li>
+                    <li>Lebih dari 500 alumni sukses</li>
+                    <li>Staf pengajar berkualifikasi tinggi</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-                <!-- Programs Section -->
-                <section id="program" class="py-16" x-data="{ activeSlide: 1 }">
-                    <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">Program Unggulan</h2>
-                    <div class="carousel w-full max-w-4xl mx-auto">
-                        <template x-for="(slide, index) in [
-                            {title: 'Program Bilingual', desc: 'Meningkatkan kemampuan bahasa Inggris siswa melalui pembelajaran bilingual.'},
-                            {title: 'Kelas Sains dan Teknologi', desc: 'Mempersiapkan siswa untuk era digital dengan fokus pada sains dan teknologi terkini.'},
-                            {title: 'Program Kepemimpinan', desc: 'Mengembangkan soft skills dan jiwa kepemimpinan siswa melalui berbagai kegiatan.'},
-                            {title: 'Ekstrakurikuler Beragam', desc: 'Menyediakan berbagai kegiatan ekstrakurikuler untuk mengembangkan bakat dan minat siswa.'}
-                        ]" :key="index">
-                            <div class="carousel-item w-full" x-show="activeSlide === index + 1">
-                                <div class="card bg-blue-50 dark:bg-gray-700 shadow-lg mx-4">
-                                    <div class="card-body">
-                                        <h3 class="card-title text-primary dark:text-white" x-text="slide.title"></h3>
-                                        <p class="text-gray-600 dark:text-gray-300" x-text="slide.desc"></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </template>
-                    </div>
-                    <div class="flex justify-center w-full py-4 gap-2">
-                        <template x-for="i in 4" :key="i">
-                            <button class="btn btn-xs" 
-                                    :class="activeSlide === i ? 'btn-primary' : 'btn-ghost'"
-                                    @click="activeSlide = i" 
-                                    x-text="i"></button>
-                        </template>
-                    </div>
-                </section>
-
-                <!-- Facilities Section -->
-                <section id="fasilitas" class="py-16 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
-                    <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">Fasilitas</h2>
-                    <div class="join join-vertical w-full max-w-2xl mx-auto">
-                        <div class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-700">
-                            <input type="radio" name="facilities" checked /> 
-                            <div class="collapse-title text-xl font-medium text-gray-800 dark:text-white">
-                                Perpustakaan Digital
-                            </div>
-                            <div class="collapse-content text-gray-600 dark:text-gray-300"> 
-                                <p>Akses ke ribuan buku dan sumber belajar digital.</p>
-                            </div>
-                        </div>
-                        <div class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-700">
-                            <input type="radio" name="facilities" /> 
-                            <div class="collapse-title text-xl font-medium text-gray-800 dark:text-white">
-                                Laboratorium Sains
-                            </div>
-                            <div class="collapse-content text-gray-600 dark:text-gray-300"> 
-                                <p>Fasilitas lengkap untuk eksperimen dan penelitian ilmiah.</p>
-                            </div>
-                        </div>
-                        <div class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-700">
-                            <input type="radio" name="facilities" /> 
-                            <div class="collapse-title text-xl font-medium text-gray-800 dark:text-white">
-                                Lapangan Olahraga
-                            </div>
-                            <div class="collapse-content text-gray-600 dark:text-gray-300"> 
-                                <p>Area luas untuk berbagai aktivitas olahraga dan kegiatan outdoor.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Contact Section -->
-                <section id="kontak" class="py-16">
-                    <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">Hubungi Kami</h2>
-                    <div class="card bg-white dark:bg-gray-700 shadow-xl max-w-2xl mx-auto">
+    <!-- Programs Section -->
+    <section id="program" class="py-16" x-data="{ activeSlide: 1 }">
+        <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">Program Unggulan</h2>
+        <div class="carousel w-full mx-auto">
+            <template x-for="(slide, index) in [
+                {title: 'Program Bilingual', desc: 'Meningkatkan kemampuan bahasa Inggris siswa melalui pembelajaran bilingual.'},
+                {title: 'Kelas Sains dan Teknologi', desc: 'Mempersiapkan siswa untuk era digital dengan fokus pada sains dan teknologi terkini.'},
+                {title: 'Program Kepemimpinan', desc: 'Mengembangkan soft skills dan jiwa kepemimpinan siswa melalui berbagai kegiatan.'},
+                {title: 'Ekstrakurikuler Beragam', desc: 'Menyediakan berbagai kegiatan ekstrakurikuler untuk mengembangkan bakat dan minat siswa.'}
+            ]" :key="index">
+                <div class="carousel-item w-full" x-show="activeSlide === index + 1">
+                    <div class="card bg-blue-50 dark:bg-gray-700 shadow-lg mx-4">
                         <div class="card-body">
-                            <div class="space-y-4 text-gray-600 dark:text-gray-300">
-                                <p><strong class="text-gray-800 dark:text-white">Alamat:</strong> Jl. Pendidikan No. 123, Kota Sejahtera</p>
-                                <p><strong class="text-gray-800 dark:text-white">Telepon:</strong> (021) 1234-5678</p>
-                                <p><strong class="text-gray-800 dark:text-white">Email:</strong> info@sekolahkita.edu</p>
-                                <p><strong class="text-gray-800 dark:text-white">Jam Operasional:</strong> Senin - Jumat, 07.00 - 16.00 WIB</p>
-                            </div>
-                            <div class="card-actions justify-end mt-6">
-                                <button class="btn btn-primary">Kirim Pesan</button>
-                            </div>
+                            <h3 class="card-title text-primary dark:text-white" x-text="slide.title"></h3>
+                            <p class="text-gray-600 dark:text-gray-300" x-text="slide.desc"></p>
                         </div>
                     </div>
-                </section>
-            </main>
+                </div>
+            </template>
+        </div>
+        <div class="flex justify-center w-full py-4 gap-2">
+            <template x-for="i in 4" :key="i">
+                <button 
+                    class="btn btn-xs" 
+                    :class="activeSlide === i ? 'btn-primary' : 'btn-ghost'" 
+                    @click="activeSlide = i" 
+                    x-text="i">
+                </button>
+            </template>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="fasilitas" class="py-16 bg-white dark:bg-gray-800 rounded-lg shadow-sm w-full mx-auto">
+        <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">Fasilitas</h2>
+        <div class="join join-vertical mx-auto w-full">
+            <div class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-700">
+                <input type="radio" name="facilities" checked /> 
+                <div class="collapse-title text-xl font-medium text-gray-800 dark:text-white">
+                    Perpustakaan Digital
+                </div>
+                <div class="collapse-content text-gray-600 dark:text-gray-300"> 
+                    <p>Akses ke ribuan buku dan sumber belajar digital.</p>
+                </div>
+            </div>
+            <div class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-700">
+                <input type="radio" name="facilities" /> 
+                <div class="collapse-title text-xl font-medium text-gray-800 dark:text-white">
+                    Laboratorium Sains
+                </div>
+                <div class="collapse-content text-gray-600 dark:text-gray-300"> 
+                    <p>Fasilitas lengkap untuk eksperimen dan penelitian ilmiah.</p>
+                </div>
+            </div>
+            <div class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-700">
+                <input type="radio" name="facilities" /> 
+                <div class="collapse-title text-xl font-medium text-gray-800 dark:text-white">
+                    Lapangan Olahraga
+                </div>
+                <div class="collapse-content text-gray-600 dark:text-gray-300"> 
+                    <p>Area luas untuk berbagai aktivitas olahraga dan kegiatan outdoor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="kontak" class="py-16">
+        <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">Hubungi Kami</h2>
+        <div class="card bg-white dark:bg-gray-700 shadow-xl max-w-2xl mx-auto">
+            <div class="card-body">
+                <div class="space-y-4 text-gray-600 dark:text-gray-300">
+                    <p><strong class="text-gray-800 dark:text-white">Alamat:</strong> Jl. Pendidikan No. 123, Kota Sejahtera</p>
+                    <p><strong class="text-gray-800 dark:text-white">Telepon:</strong> (021) 1234-5678</p>
+                    <p><strong class="text-gray-800 dark:text-white">Email:</strong> info@sekolahkita.edu</p>
+                    <p><strong class="text-gray-800 dark:text-white">Jam Operasional:</strong> Senin - Jumat, 07.00 - 16.00 WIB</p>
+                </div>
+                <div class="card-actions justify-end mt-6">
+                    <button class="btn btn-primary">Kirim Pesan</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
 
             <!-- Footer -->
             <footer class="footer p-10 bg-gray-50 text-gray-600 dark:bg-gray-800 dark:text-gray-300">
