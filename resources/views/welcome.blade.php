@@ -93,7 +93,8 @@
                             @endif
                         </div>
                         <div class="flex-1">
-                            <div x-data="typewriter()" x-init="start()" class="inline-block overflow-hidden whitespace-nowrap border-r-4 border-blue-700 pr-2">
+                            <div x-data="typewriter()" x-init="start()"
+                                class="inline-block overflow-hidden whitespace-nowrap border-r-4 border-blue-700 pr-2">
                                 <h1 class="text-5xl font-bold" x-text="text"></h1>
                             </div>
                             <p class="py-6">
@@ -160,20 +161,42 @@
                                 kapan pertama kali ngoding dan kenapa suka ngoding ?
                             </div>
                             <div class="collapse-content text-gray-600 dark:text-gray-300">
-                                <p> Jika dibilang suka mungkin tidak terlalu, tapi saya mulai  tertarik sejak semester 1 saat pertama kali mendapatkan kursus gratis dari <a href="https://www.dicoding.com/">Dicoding</a> dan Codepolitan. Itulah pertama kali saya mulai ngoding. Mulai dari HTML, CSS, dan JavaScript, hingga sekarang masih terus belajar ngoding, sampai ke REACT, NEXTJS, MERN, dan LARAVEL. Yang seru saat menemukan error yang lama dan ketemu bugnya. <br>
-                                    <span class=" badge badge-md p-1 font-semibold text-dark  badge-primary">~BY Saidi</span> </p>
+                                <p> Jika dibilang suka mungkin tidak terlalu, tapi saya mulai tertarik sejak semester 1
+                                    saat pertama kali mendapatkan kursus gratis dari <a
+                                        href="https://www.dicoding.com/">Dicoding</a> dan Codepolitan. Itulah pertama
+                                    kali saya mulai ngoding. Mulai dari HTML, CSS, dan JavaScript, hingga sekarang masih
+                                    terus belajar ngoding, sampai ke REACT, NEXTJS, MERN, dan LARAVEL. Yang seru saat
+                                    menemukan error yang lama dan ketemu bugnya. <br>
+                                    <span class=" badge badge-md p-1 font-semibold text-dark  badge-primary">~BY
+                                        Saidi</span> </p>
+                                <p> Saya pertama kali ngoding karna kebetulan awalnya saya tidak diterima masuk di jurusan tkj smk, jadi terpaksa saya harus masuk ke pilihan ke3 yaitu RPL yang dimana, diharuskan ngoding terus. awalnya memang berat tapi sekarang tetap masih berat XIXIXIX <br>
+                                    <span class=" badge badge-md p-1 font-semibold text-dark  badge-primary">~By
+                                        Ari</span> </p>
                             </div>
                         </div>
                         <div
                             class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
                             <input type="radio" name="facilities" />
                             <div class="collapse-title text-xl font-medium text-gray-800 dark:text-white">
-                                Apakah ada framework atau teknologi baru yang ingin Anda pelajari dalam waktu dekat? 
+                                Apakah ada framework atau teknologi baru yang ingin Anda pelajari dalam waktu dekat?
                             </div>
                             <div class="collapse-content text-gray-600 dark:text-gray-300">
-                                <p> Framework yang baru ingin saya pelajari mungkin React dan framework-nya, Next.js, karena seru bisa membuat berbagai macam UI. Saya juga baru tahu kalau frontend itu banyak bermain dengan data dan logika. Selain itu, mungkin saya juga ingin belajar backend dengan Laravel, karena untuk membuat aplikasi yang cepat, Laravel adalah pilihan yang menarik dibandingkan framework lain. Selain itu, saya juga tertarik untuk mempelajari Python karena saya tertarik dengan AI dan Data Science. 
+                                <p> Framework yang baru ingin saya pelajari mungkin React dan framework-nya, Next.js,
+                                    karena seru bisa membuat berbagai macam UI. Saya juga baru tahu kalau frontend itu
+                                    banyak bermain dengan data dan logika. Selain itu, mungkin saya juga ingin belajar
+                                    backend dengan Laravel, karena untuk membuat aplikasi yang cepat, Laravel adalah
+                                    pilihan yang menarik dibandingkan framework lain. Selain itu, saya juga tertarik
+                                    untuk mempelajari Python karena saya tertarik dengan AI dan Data Science.
                                     <br>
-                                    <span class=" badge badge-md p-1 font-semibold dark:text-dark text-light    badge-primary">~BY Saidi</span> </p>
+                                    <span
+                                        class=" badge badge-md p-1 font-semibold dark:text-dark text-light    badge-primary">~BY
+                                        Saidi</span>
+                                </p>
+                                <p> Mungkin saya ingin belajar React js , karena saya melihat React sangat keren dan multifungsi
+                                    <br>
+                                    <span
+                                        class=" badge badge-md p-1 font-semibold dark:text-dark text-light    badge-primary">~By
+                                        Ari</span>
                                 </p>
                             </div>
                         </div>
@@ -197,8 +220,7 @@
                         <div class="carousel relative w-full max-w-4xl max-h-96">
                             <!-- Slides -->
                             <div id="slide1" class="carousel-item relative w-full">
-                                <img src="{{ asset('img/project2.png') }}"
-                                    class="w-full object-cover rounded-lg" />
+                                <img src="{{ asset('img/project2.png') }}" class="w-full object-cover rounded-lg" />
                                 <div
                                     class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
                                     <a href="#slide4" class="btn btn-circle bg-gray-800/70 hover:bg-gray-800">❮</a>
@@ -206,8 +228,7 @@
                                 </div>
                             </div>
                             <div id="slide2" class="carousel-item relative w-full">
-                                <img src="{{ asset('img/project3.jpg') }}"
-                                    class="w-full object-cover rounded-lg" />
+                                <img src="{{ asset('img/project3.jpg') }}" class="w-full object-cover rounded-lg" />
                                 <div
                                     class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
                                     <a href="#slide1" class="btn btn-circle bg-gray-800/70 hover:bg-gray-800">❮</a>
@@ -215,8 +236,7 @@
                                 </div>
                             </div>
                             <div id="slide3" class="carousel-item relative w-full">
-                                <img src="{{ asset('img/tes.jpg') }}"
-                                    class="w-full object-cover rounded-lg" />
+                                <img src="{{ asset('img/tes.jpg') }}" class="w-full object-cover rounded-lg" />
                                 <div
                                     class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
                                     <a href="#slide2" class="btn btn-circle bg-gray-800/70 hover:bg-gray-800">❮</a>
@@ -255,7 +275,7 @@
                         </div>
                     </section>
 
-         </center>
+                </center>
 
 
 
@@ -340,7 +360,7 @@
 
                     if (currentIndex === this.texts[this.textIndex].length) {
                         clearInterval(interval);
-                        setTimeout(() => this.delete(), 2000);  // Wait before deleting
+                        setTimeout(() => this.delete(), 2000); // Wait before deleting
                     }
                 }, this.delay);
             },
@@ -352,12 +372,14 @@
 
                     if (currentIndex === 0) {
                         clearInterval(interval);
-                        this.textIndex = (this.textIndex + 1) % this.texts.length;  // Move to next text
-                        setTimeout(() => this.type(), 500);  // Wait before typing again
+                        this.textIndex = (this.textIndex + 1) % this.texts.length; // Move to next text
+                        setTimeout(() => this.type(), 500); // Wait before typing again
                     }
                 }, this.deleteDelay);
             }
         }
     }
+
 </script>
+
 </html>
