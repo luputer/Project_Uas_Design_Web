@@ -101,7 +101,7 @@
                                 Experience the power of modern analytics and project management in one place. Start
                                 managing your projects more efficiently today.
                             </p>
-                            <button class="btn btn-primary">Get Started</button>
+                            <a href="/admin/login"  class="btn btn-primary"  >Get Started</a>
                         </div>
                     </div>
                 </div>
@@ -204,10 +204,13 @@
                             class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
                             <input type="radio" name="facilities" />
                             <div class="collapse-title text-xl font-medium text-gray-800 dark:text-white">
-                                Lapangan Olahraga
+                                Apa bahasa pemerograman yang paling di sukai dan kenapa ?
                             </div>
                             <div class="collapse-content text-gray-600 dark:text-gray-300">
-                                <p>Area luas untuk berbagai aktivitas olahraga dan kegiatan outdoor.</p>
+                                <p> Bahasa pemrograman yang paling disukai saya kurang tahu pasti, tetapi karena sering menggunakan JavaScript, mungkin saya memilih JavaScript karena dapat digunakan di berbagai platform. <br>
+                                    <span
+                                    class=" badge badge-md p-1 font-semibold dark:text-dark text-light    badge-primary">~By
+                                    Saidi</span></p>
                             </div>
                         </div>
                     </div>
@@ -222,7 +225,6 @@
                             <div id="slide1" class="carousel-item relative w-full">
                                 <img src="{{ asset('img/project1.png') }}"
                                     class="w-full object-cover rounded-lg" />
-                                <img src="{{ asset('img/project2.png') }}" class="w-full object-cover rounded-lg" />
                                 <div
                                     class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
                                     <a href="#slide4" class="btn btn-circle bg-gray-800/70 hover:bg-gray-800">❮</a>
@@ -232,7 +234,6 @@
                             <div id="slide2" class="carousel-item relative w-full">
                                 <img src="{{ asset('img/project2.jpg') }}"
                                     class="w-full object-cover rounded-lg" />
-                                <img src="{{ asset('img/project3.jpg') }}" class="w-full object-cover rounded-lg" />
                                 <div
                                     class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
                                     <a href="#slide1" class="btn btn-circle bg-gray-800/70 hover:bg-gray-800">❮</a>
@@ -240,9 +241,7 @@
                                 </div>
                             </div>
                             <div id="slide3" class="carousel-item relative w-full">
-                                <img src="{{ asset('img/project3.jpg') }}"
-                                    class="w-full object-cover rounded-lg" />
-                                <img src="{{ asset('img/tes.jpg') }}" class="w-full object-cover rounded-lg" />
+                                <img src="{{ asset('img/project3.jpg') }}" class="w-full object-cover rounded-lg" />
                                 <div
                                     class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
                                     <a href="#slide2" class="btn btn-circle bg-gray-800/70 hover:bg-gray-800">❮</a>
