@@ -192,7 +192,7 @@
                 <div>
                     <span class="footer-title text-primary">Sekolah Kita</span> 
                     <p>&copy; 2023 Sekolah Kita. Hak Cipta Dilindungi.</p>
-                    <p>Dibuat dengan ❤️ untuk pendidikan berkualitas</p>
+                    <p>Dibuat dengan ❤ untuk pendidikan berkualitas</p>
                 </div> 
                 <div>
                     <span class="footer-title text-primary">Social Media</span> 
