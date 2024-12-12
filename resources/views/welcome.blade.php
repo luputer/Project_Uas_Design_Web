@@ -197,7 +197,7 @@
                         <div class="carousel relative w-full max-w-4xl max-h-96">
                             <!-- Slides -->
                             <div id="slide1" class="carousel-item relative w-full">
-                                <img src="{{ asset('img/project2.png') }}"
+                                <img src="{{ asset('img/project1.png') }}"
                                     class="w-full object-cover rounded-lg" />
                                 <div
                                     class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
@@ -206,7 +206,7 @@
                                 </div>
                             </div>
                             <div id="slide2" class="carousel-item relative w-full">
-                                <img src="{{ asset('img/project3.jpg') }}"
+                                <img src="{{ asset('img/project2.jpg') }}"
                                     class="w-full object-cover rounded-lg" />
                                 <div
                                     class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
@@ -215,7 +215,7 @@
                                 </div>
                             </div>
                             <div id="slide3" class="carousel-item relative w-full">
-                                <img src="{{ asset('img/tes.jpg') }}"
+                                <img src="{{ asset('img/project3.jpg') }}"
                                     class="w-full object-cover rounded-lg" />
                                 <div
                                     class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
@@ -224,7 +224,7 @@
                                 </div>
                             </div>
                             <div id="slide4" class="carousel-item relative w-full">
-                                <img src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
+                                <img src="{{ asset('img/project4.jpg') }}"
                                     class="w-full object-cover rounded-lg" />
                                 <div
                                     class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
@@ -237,19 +237,19 @@
                         <!-- Thumbnail Navigation -->
                         <div class="flex justify-center space-x-4 mt-4">
                             <a href="#slide1" class="cursor-pointer">
-                                <img src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
+                                <img src="{{ asset('img/project1.png') }}"
                                     class="w-20 h-12 object-cover rounded border border-gray-300 hover:ring-2 hover:ring-blue-500" />
                             </a>
                             <a href="#slide2" class="cursor-pointer">
-                                <img src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
+                                <img src="{{ asset('img/project2.jpg') }}"
                                     class="w-20 h-12 object-cover rounded border border-gray-300 hover:ring-2 hover:ring-blue-500" />
                             </a>
                             <a href="#slide3" class="cursor-pointer">
-                                <img src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
+                                <img src="{{ asset('img/project3.jpg') }}"
                                     class="w-20 h-12 object-cover rounded border border-gray-300 hover:ring-2 hover:ring-blue-500" />
                             </a>
                             <a href="#slide4" class="cursor-pointer">
-                                <img src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
+                                <img src="{{ asset('img/project4.jpg') }}"
                                     class="w-20 h-12 object-cover rounded border border-gray-300 hover:ring-2 hover:ring-blue-500" />
                             </a>
                         </div>
