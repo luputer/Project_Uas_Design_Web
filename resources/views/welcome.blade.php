@@ -151,26 +151,30 @@
                 <!-- Facilities Section -->
                 <section id="fasilitas"
                     class="py-16 mt-10 bg-white dark:bg-gray-900 rounded-lg shadow-sm w-full mx-auto p-5">
-                    <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">Project</h2>
+                    <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">QNA</h2>
                     <div class="join join-vertical mx-auto w-full">
                         <div
                             class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
                             <input type="radio" name="facilities" checked />
                             <div class="collapse-title text-xl font-medium text-gray-800 dark:text-white">
-                                Perpustakaan Digital
+                                kapan pertama kali ngoding dan kenapa suka ngoding ?
                             </div>
                             <div class="collapse-content text-gray-600 dark:text-gray-300">
-                                <p>Akses ke ribuan buku dan sumber belajar digital.</p>
+                                <p> Jika dibilang suka mungkin tidak terlalu, tapi saya mulai  tertarik sejak semester 1 saat pertama kali mendapatkan kursus gratis dari <a href="https://www.dicoding.com/">Dicoding</a> dan Codepolitan. Itulah pertama kali saya mulai ngoding. Mulai dari HTML, CSS, dan JavaScript, hingga sekarang masih terus belajar ngoding, sampai ke REACT, NEXTJS, MERN, dan LARAVEL. Yang seru saat menemukan error yang lama dan ketemu bugnya. <br>
+                                    <span class=" badge badge-md p-1 font-semibold text-dark  badge-primary">~BY Saidi</span> </p>
                             </div>
                         </div>
                         <div
                             class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
                             <input type="radio" name="facilities" />
                             <div class="collapse-title text-xl font-medium text-gray-800 dark:text-white">
-                                Laboratorium Sains
+                                Apakah ada framework atau teknologi baru yang ingin Anda pelajari dalam waktu dekat? 
                             </div>
                             <div class="collapse-content text-gray-600 dark:text-gray-300">
-                                <p>Fasilitas lengkap untuk eksperimen dan penelitian ilmiah.</p>
+                                <p> Framework yang baru ingin saya pelajari mungkin React dan framework-nya, Next.js, karena seru bisa membuat berbagai macam UI. Saya juga baru tahu kalau frontend itu banyak bermain dengan data dan logika. Selain itu, mungkin saya juga ingin belajar backend dengan Laravel, karena untuk membuat aplikasi yang cepat, Laravel adalah pilihan yang menarik dibandingkan framework lain. Selain itu, saya juga tertarik untuk mempelajari Python karena saya tertarik dengan AI dan Data Science. 
+                                    <br>
+                                    <span class=" badge badge-md p-1 font-semibold dark:text-dark text-light    badge-primary">~BY Saidi</span> </p>
+                                </p>
                             </div>
                         </div>
                         <div
@@ -202,7 +206,7 @@
                                 </div>
                             </div>
                             <div id="slide2" class="carousel-item relative w-full">
-                                <img src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
+                                <img src="{{ asset('img/project3.jpg') }}"
                                     class="w-full object-cover rounded-lg" />
                                 <div
                                     class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
