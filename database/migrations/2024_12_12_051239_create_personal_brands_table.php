@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('linkPortfolio');
             $table->text('goal');
             $table->String('phone');
+            $table->String('image');
             $table->timestamps();
         });
     }
