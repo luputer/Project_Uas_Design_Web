@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="id" x-data="{ darkMode: localStorage.getItem('darkMode') === 'true' }" 
       x-init="$watch('darkMode', val => localStorage.setItem('darkMode', val))" 
-      :class="{ 'dark': darkMode }">
+      :class="{ 'dark': darkMode }" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     @vite('resources/css/app.css')
     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -84,7 +85,7 @@
     </div>
 
     <!-- About Section -->
-    <section id="tentang" class="py-16 bg-white dark:bg-gray-800 rounded-lg shadow-sm my-8">
+    <section id="tentang" class="py-10 bg-white dark:bg-gray-800 rounded-lg shadow-sm my-8">
         <div class="max-w-4xl mx-auto px-6">
             <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">Tentang Kami</h2>
             <div class="prose prose-lg max-w-none text-gray-600 dark:text-gray-300">
@@ -101,16 +102,16 @@
         </div>
     </section>
 
-    <div class="flex items-center justify-evenly ml-52 "> <!-- betjustify-between the grid of cards -->  
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6"> 
+    <div class="flex items-center justify-evenly  "> <!-- betjustify-between the grid of cards -->  
+        <div class="grid grid-cols-2 md:grid-cols-2 gap-6"> 
             @foreach($personalBrandData as $data)  
-            <div class="card bg-base-100 shadow-xl dark:text-white dark:bg-gray-700">
+            <div class="card bg-base-100 shadow-xl w-full dark:text-white dark:bg-gray-700">
                 <div class="card-body">
                     <h2 class="card-title"> {{ $data->nama }}</h2>
                     <ul class="list-disc list-inside">
-                        <li>New feature release v2.1.0</li>
-                        <li>Performance improvements</li>
-                        <li>Bug fixes and optimizations</li>
+                        <li class="m-1"><i class="fa fa-github" style="font-size:24px"></i><a target="_blank" href="{{ $data->github }}" class="ml-1">{{ $data->github }}</a></li>
+                        <li class="m-1"><i class="fa fa-chain-broken" style="font-size:24px"></i><a target="_blank" class="ml-1" href="{{ $data->linkPortfolio }}">{{ $data->linkPortfolio }}</a></li>
+                        <li class="m-1">Bug fixes and optimizations</li>
                     </ul>
                 </div>
             </div>
@@ -121,7 +122,7 @@
 
     <!-- Facilities Section -->
     <section id="fasilitas" class="py-16 mt-10 bg-white dark:bg-gray-900 rounded-lg shadow-sm w-full mx-auto p-5">
-        <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">Fasilitas</h2>
+        <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">Project</h2>
         <div class="join join-vertical mx-auto w-full">
             <div class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
                 <input type="radio" name="facilities" checked /> 
@@ -152,6 +153,7 @@
             </div>
         </div>
     </section>
+    
 
     <!-- Contact Section -->
     <section id="kontak" class="py-16">
