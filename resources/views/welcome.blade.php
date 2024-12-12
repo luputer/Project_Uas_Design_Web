@@ -9,8 +9,7 @@
             localStorage.setItem('darkMode', this.darkMode);
         }
     }" :data-theme="darkMode ? 'dark' : 'light'">
-<head>
-    <meta charset="UTF-8">
+    <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -91,7 +90,9 @@
                 <p class="py-6">
                     Experience the power of modern analytics and project management in one place. Start managing your projects more efficiently today.
                 </p>
-                <button class="btn btn-primary">Get Started</button>
+                <button class="btn btn-primary">
+                    <a href="/admin/login">Get Started</a>
+                </button>
             </div>
         </div>
     </div>
@@ -123,11 +124,12 @@
             @foreach($personalBrandData as $data)  
                 <div class="card bg-base-100 shadow-xl">  
                     <div class="card-body">  
-                        <h2 class="card-title">Latest Updates</h2>  
+                        <h2 class="card-title">{{ $data->nama }}</h2>  
                         <ul class="list-disc list-inside">  
-                            <li>New feature release v2.1.0</li>  
-                            <li>Performance improvements</li>  
-                            <li>Bug fixes and optimizations</li>  
+                            <li>{{ $data->nim }}</li>  
+                            <li>{{ $data->email }}</li>  
+                            <li>{{ $data->goal }}</li>  
+                            <li>{{ $data->phone }}</li>  
                         </ul>  
                     </div>  
                 </div>  
@@ -138,24 +140,54 @@
 
     <!-- Facilities Section -->
     <section id="fasilitas" class="py-16 mt-10 bg-white dark:bg-gray-900 rounded-lg shadow-sm w-full mx-auto p-5">
-        <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">Fasilitas</h2>
+        <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">QNA</h2>
         <div class="join join-vertical mx-auto w-full">
             <div class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
                 <input type="radio" name="facilities" checked /> 
                 <div class="collapse-title text-xl font-medium text-gray-800 dark:text-white">
-                    Perpustakaan Digital
+                    Sejak kapan suka ngoding by Surya Arinaldi
                 </div>
                 <div class="collapse-content text-gray-600 dark:text-gray-300"> 
-                    <p>Akses ke ribuan buku dan sumber belajar digital.</p>
+                    <p>kalo dilang suka ngak juga karna awalnya, saya itu suka main game dan, mulai itu pas awal semester 1, saat itu ada biasiswa coding gratis dari
+                        Codepolitan, dan dicoding, dari situ saat saya ambil pertama kali saya belajar tentang HTML CSS JS, gitu terus keterusan sampe sekarang, sampe belajar REACT, LARAVEL, MERN STACK,<br>
+                        kalo di bilang suka nya, saat memecahkan masalah dan dunia web itu luas, sekali.
+                    </p>
                 </div>
             </div>
             <div class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
                 <input type="radio" name="facilities" /> 
                 <div class="collapse-title text-xl font-medium text-gray-800 dark:text-white">
-                    Laboratorium Sains
+                    Impianya mau jadi apa by saidi
                 </div>
                 <div class="collapse-content text-gray-600 dark:text-gray-300"> 
-                    <p>Fasilitas lengkap untuk eksperimen dan penelitian ilmiah.</p>
+                    <p>saya kepengen punya sesatu yang berharga, dan bisa mem</p>
+                </div>
+            </div>
+            <div class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
+                <input type="radio" name="facilities" /> 
+                <div class="collapse-title text-xl font-medium text-gray-800 dark:text-white">
+                    Lapangan Olahraga
+                </div>
+                <div class="collapse-content text-gray-600 dark:text-gray-300"> 
+                    <p>Area luas untuk berbagai aktivitas olahraga dan kegiatan outdoor.</p>
+                </div>
+            </div>
+            <div class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
+                <input type="radio" name="facilities" /> 
+                <div class="collapse-title text-xl font-medium text-gray-800 dark:text-white">
+                    Lapangan Olahraga
+                </div>
+                <div class="collapse-content text-gray-600 dark:text-gray-300"> 
+                    <p>Area luas untuk berbagai aktivitas olahraga dan kegiatan outdoor.</p>
+                </div>
+            </div>
+            <div class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
+                <input type="radio" name="facilities" /> 
+                <div class="collapse-title text-xl font-medium text-gray-800 dark:text-white">
+                    Lapangan Olahraga
+                </div>
+                <div class="collapse-content text-gray-600 dark:text-gray-300"> 
+                    <p>Area luas untuk berbagai aktivitas olahraga dan kegiatan outdoor.</p>
                 </div>
             </div>
             <div class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
@@ -178,7 +210,7 @@
                 <div class="space-y-4 text-gray-600 dark:text-gray-300">
                     <p><strong class="text-gray-800 dark:text-white">Alamat:</strong> Jl. Pendidikan No. 123, Kota Sejahtera</p>
                     <p><strong class="text-gray-800 dark:text-white">Telepon:</strong> (021) 1234-5678</p>
-                    <p><strong class="text-gray-800 dark:text-white">Email:</strong> info@sekolahkita.edu</p>
+                    <p><strong class="text-gray-800 dark:text-white">Email:</strong>namaddada</p>
                     <p><strong class="text-gray-800 dark:text-white">Jam Operasional:</strong> Senin - Jumat, 07.00 - 16.00 WIB</p>
                 </div>
                 <div class="card-actions justify-end mt-6">
