@@ -1,139 +1,208 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" x-data="{ darkMode: localStorage.getItem('darkMode') === 'true' }" 
+      x-init="$watch('darkMode', val => localStorage.setItem('darkMode', val))" 
+      :class="{ 'dark': darkMode }">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KPU Kabupaten - Pendaftaran Calon Anggota Legislatif</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-</head>
-<body class="bg-gray-100 font-sans">
-    <header class="bg-blue-700 text-white p-4">
-        <div class="container mx-auto">
-            <h1 class="text-2xl font-bold">KPU Kabupaten</h1>
-            <p class="text-sm">Sistem Informasi Pendaftaran Calon Anggota Legislatif</p>
-        </div>
-    </header>
-
-    <main class="container mx-auto py-8">
-        <section class="text-center mb-12">
-            <h2 class="text-3xl font-bold mb-4">Selamat Datang di Portal Pendaftaran</h2>
-            <p class="text-xl text-gray-600">Daftarkan diri Anda sebagai Calon Anggota Legislatif</p>
-        </section>
-
-        <!-- Carousel -->
-        <div x-data="carousel()" class="relative mb-12 overflow-hidden rounded-lg">
-            <div class="flex transition-transform duration-300 ease-in-out" :style="{ transform: `translateX(-${100 * currentIndex}%)` }">
-                <div class="w-full flex-shrink-0">
-                    <img src="https://via.placeholder.com/800x400?text=Slide+1" alt="Carousel Slide 1" class="w-full h-64 object-cover">
-                </div>
-                <div class="w-full flex-shrink-0">
-                    <img src="https://via.placeholder.com/800x400?text=Slide+2" alt="Carousel Slide 2" class="w-full h-64 object-cover">
-                </div>
-                <div class="w-full flex-shrink-0">
-                    <img src="https://via.placeholder.com/800x400?text=Slide+3" alt="Carousel Slide 3" class="w-full h-64 object-cover">
-                </div>
-            </div>
-            <button @click="prev()" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r">
-                &lt;
-            </button>
-            <button @click="next()" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l">
-                &gt;
-            </button>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            @php
-                $cards = [
-                    ['icon' => 'user-plus', 'title' => 'Pendaftaran', 'description' => 'Mulai proses pendaftaran Anda sebagai calon anggota legislatif.', 'action' => 'Daftar Sekarang', 'route' => 'register'],
-                    ['icon' => 'file-text', 'title' => 'Persyaratan', 'description' => 'Lihat daftar persyaratan yang diperlukan untuk mendaftar.', 'action' => 'Lihat Persyaratan', 'route' => 'requirements'],
-                    ['icon' => 'check-circle', 'title' => 'Status Pendaftaran', 'description' => 'Periksa status pendaftaran Anda.', 'action' => 'Cek Status', 'route' => 'status'],
-                    ['icon' => 'help-circle', 'title' => 'Bantuan', 'description' => 'Dapatkan bantuan dan informasi tambahan tentang proses pendaftaran.', 'action' => 'Pusat Bantuan', 'route' => 'help'],
-                ];
-            @endphp
-
-            @foreach ($cards as $card)
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <div class="flex items-center mb-4">
-                        <svg class="w-6 h-6 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M{{ $card['icon'] === 'user-plus' ? '18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z' : ($card['icon'] === 'file-text' ? '9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' : ($card['icon'] === 'check-circle' ? '9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' : '8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z')) }}"></path>
-                        </svg>
-                        <h3 class="text-xl font-semibold">{{ $card['title'] }}</h3>
-                    </div>
-                    <p class="text-gray-600 mb-4">{{ $card['description'] }}</p>
-                    <a href="{{ route($card['route']) }}" class="block w-full text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-                        {{ $card['action'] }}
-                    </a>
-                </div>
-            @endforeach
-        </div>
-
-        <!-- Accordion -->
-        <div x-data="{ activeAccordion: null }" class="mt-12">
-            <h2 class="text-2xl font-bold mb-4">Informasi Penting</h2>
-            @php
-                $accordionItems = [
-                    ['title' => 'Jadwal Pendaftaran', 'content' => 'Pendaftaran calon anggota legislatif dibuka dari tanggal 1 Juli 2023 hingga 31 Juli 2023.'],
-                    ['title' => 'Dokumen yang Diperlukan', 'content' => 'Dokumen yang diperlukan meliputi KTP, Ijazah terakhir, Surat Keterangan Sehat, dan Pas Foto terbaru.'],
-                    ['title' => 'Proses Seleksi', 'content' => 'Proses seleksi meliputi verifikasi dokumen, tes tertulis, dan wawancara. Seleksi akan berlangsung selama bulan Agustus 2023.'],
-                    ['title' => 'Pengumuman Hasil', 'content' => 'Hasil seleksi akan diumumkan pada tanggal 15 September 2023 melalui website resmi dan SMS kepada para kandidat.'],
-                ];
-            @endphp
-
-            @foreach ($accordionItems as $index => $item)
-                <div class="mb-2 border rounded-lg">
-                    <button
-                        @click="activeAccordion = (activeAccordion === {{ $index }}) ? null : {{ $index }}"
-                        class="flex justify-between items-center w-full p-4 text-left bg-gray-200 hover:bg-gray-300 focus:outline-none"
-                    >
-                        <span class="font-semibold">{{ $item['title'] }}</span>
-                        <svg
-                            class="w-6 h-6 transition-transform duration-200"
-                            :class="{ 'transform rotate-180': activeAccordion === {{ $index }} }"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <div
-                        x-show="activeAccordion === {{ $index }}"
-                        x-transition:enter="transition ease-out duration-200"
-                        x-transition:enter-start="opacity-0 transform scale-95"
-                        x-transition:enter-end="opacity-100 transform scale-100"
-                        x-transition:leave="transition ease-in duration-100"
-                        x-transition:leave-start="opacity-100 transform scale-100"
-                        x-transition:leave-end="opacity-0 transform scale-95"
-                        class="p-4 bg-white"
-                    >
-                        <p>{{ $item['content'] }}</p>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    </main>
-
-    <footer class="bg-gray-200 p-4 mt-12">
-        <div class="container mx-auto text-center text-gray-600">
-            <p>&copy; {{ date('Y') }} KPU Kabupaten. Hak Cipta Dilindungi.</p>
-        </div>
-    </footer>
-
+    <title>Selamat Datang di SIPCAL</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        function carousel() {
-            return {
-                currentIndex: 0,
-                items: [0, 1, 2],
-                next() {
-                    this.currentIndex = this.currentIndex === this.items.length - 1 ? 0 : this.currentIndex + 1;
-                },
-                prev() {
-                    this.currentIndex = this.currentIndex === 0 ? this.items.length - 1 : this.currentIndex - 1;
-                },
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#06B6D4',
+                        accent: '#F59E0B',
+                        neutral: '#F3F4F6',
+                        'base-100': '#FFFFFF',
+                        'base-200': '#F9FAFB',
+                        'base-300': '#F3F4F6',
+                    }
+                }
             }
         }
     </script>
+</head>
+<body x-bind:class="darkMode ? 'dark bg-gray-900 text-white' : 'bg-white text-gray-800'" 
+      class="font-sans transition-colors duration-300">
+    <div class="drawer">
+        <input id="my-drawer-3" type="checkbox" class="drawer-toggle" /> 
+        <div class="drawer-content flex flex-col">
+            <!-- Navbar -->
+            <div class="w-full navbar bg-white shadow-sm dark:bg-gray-800">
+                <div class="flex-none lg:hidden">
+                    <label for="my-drawer-3" class="btn btn-square btn-ghost">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </label>
+                </div> 
+                <div class="flex-1 px-2 mx-2 text-primary font-bold text-xl">SIPCAL</div>
+                <div class="flex-none hidden lg:block">
+                    <ul class="menu menu-horizontal">
+                        <li><a href="#beranda" class="hover:text-primary">Beranda</a></li>
+                        <li><a href="#tentang" class="hover:text-primary">Tentang Kami</a></li>
+                        <li><a href="#program" class="hover:text-primary">Program Unggulan</a></li>
+                        <li><a href="#fasilitas" class="hover:text-primary">Fasilitas</a></li>
+                        <li><a href="#kontak" class="hover:text-primary">Kontak</a></li>
+                    </ul>
+                </div>
+                <button class="btn btn-ghost btn-circle" @click="darkMode = !darkMode">
+                    <svg x-show="!darkMode" class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    <svg x-show="darkMode" class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                </button>
+            </div>
+
+            <!-- Main Content -->
+            <main class="container mx-auto px-4 py-8">
+                <!-- Hero Section -->
+                <section id="beranda" class="hero min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900">
+                    <div class="hero-content text-center">
+                        <div class="max-w-md">
+                            <h1 class="text-5xl font-bold text-gray-800 dark:text-white mb-4">Selamat Datang di Sekolah Kita</h1>
+                            <p class="py-6 text-gray-600 dark:text-gray-300">Tempat di mana bakat dan potensi berkembang</p>
+                            <a href="/daftar"  class="btn btn-primary" >Daftar Sekarang</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- About Section -->
+                <section id="tentang" class="py-16 bg-white dark:bg-gray-800 rounded-lg shadow-sm my-8">
+                    <div class="max-w-4xl mx-auto px-6">
+                        <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">Tentang Kami</h2>
+                        <div class="prose prose-lg max-w-none text-gray-600 dark:text-gray-300">
+                            <p class="mb-6">Sekolah Kita adalah lembaga pendidikan yang berdedikasi untuk mengembangkan potensi setiap siswa. Dengan kurikulum yang komprehensif dan fasilitas modern, kami berkomitmen untuk menciptakan lingkungan belajar yang inspiratif dan inovatif.</p>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Didirikan sejak tahun 1990</li>
+                                <li>Akreditasi A</li>
+                                <li>Lebih dari 500 alumni sukses</li>
+                                <li>Staf pengajar berkualifikasi tinggi</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Programs Section -->
+                <section id="program" class="py-16" x-data="{ activeSlide: 1 }">
+                    <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">Program Unggulan</h2>
+                    <div class="carousel w-full max-w-4xl mx-auto">
+                        <template x-for="(slide, index) in [
+                            {title: 'Program Bilingual', desc: 'Meningkatkan kemampuan bahasa Inggris siswa melalui pembelajaran bilingual.'},
+                            {title: 'Kelas Sains dan Teknologi', desc: 'Mempersiapkan siswa untuk era digital dengan fokus pada sains dan teknologi terkini.'},
+                            {title: 'Program Kepemimpinan', desc: 'Mengembangkan soft skills dan jiwa kepemimpinan siswa melalui berbagai kegiatan.'},
+                            {title: 'Ekstrakurikuler Beragam', desc: 'Menyediakan berbagai kegiatan ekstrakurikuler untuk mengembangkan bakat dan minat siswa.'}
+                        ]" :key="index">
+                            <div class="carousel-item w-full" x-show="activeSlide === index + 1">
+                                <div class="card bg-blue-50 dark:bg-gray-700 shadow-lg mx-4">
+                                    <div class="card-body">
+                                        <h3 class="card-title text-primary dark:text-white" x-text="slide.title"></h3>
+                                        <p class="text-gray-600 dark:text-gray-300" x-text="slide.desc"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                    <div class="flex justify-center w-full py-4 gap-2">
+                        <template x-for="i in 4" :key="i">
+                            <button class="btn btn-xs" 
+                                    :class="activeSlide === i ? 'btn-primary' : 'btn-ghost'"
+                                    @click="activeSlide = i" 
+                                    x-text="i"></button>
+                        </template>
+                    </div>
+                </section>
+
+                <!-- Facilities Section -->
+                <section id="fasilitas" class="py-16 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+                    <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">Fasilitas</h2>
+                    <div class="join join-vertical w-full max-w-2xl mx-auto">
+                        <div class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-700">
+                            <input type="radio" name="facilities" checked /> 
+                            <div class="collapse-title text-xl font-medium text-gray-800 dark:text-white">
+                                Perpustakaan Digital
+                            </div>
+                            <div class="collapse-content text-gray-600 dark:text-gray-300"> 
+                                <p>Akses ke ribuan buku dan sumber belajar digital.</p>
+                            </div>
+                        </div>
+                        <div class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-700">
+                            <input type="radio" name="facilities" /> 
+                            <div class="collapse-title text-xl font-medium text-gray-800 dark:text-white">
+                                Laboratorium Sains
+                            </div>
+                            <div class="collapse-content text-gray-600 dark:text-gray-300"> 
+                                <p>Fasilitas lengkap untuk eksperimen dan penelitian ilmiah.</p>
+                            </div>
+                        </div>
+                        <div class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-700">
+                            <input type="radio" name="facilities" /> 
+                            <div class="collapse-title text-xl font-medium text-gray-800 dark:text-white">
+                                Lapangan Olahraga
+                            </div>
+                            <div class="collapse-content text-gray-600 dark:text-gray-300"> 
+                                <p>Area luas untuk berbagai aktivitas olahraga dan kegiatan outdoor.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact Section -->
+                <section id="kontak" class="py-16">
+                    <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">Hubungi Kami</h2>
+                    <div class="card bg-white dark:bg-gray-700 shadow-xl max-w-2xl mx-auto">
+                        <div class="card-body">
+                            <div class="space-y-4 text-gray-600 dark:text-gray-300">
+                                <p><strong class="text-gray-800 dark:text-white">Alamat:</strong> Jl. Pendidikan No. 123, Kota Sejahtera</p>
+                                <p><strong class="text-gray-800 dark:text-white">Telepon:</strong> (021) 1234-5678</p>
+                                <p><strong class="text-gray-800 dark:text-white">Email:</strong> info@sekolahkita.edu</p>
+                                <p><strong class="text-gray-800 dark:text-white">Jam Operasional:</strong> Senin - Jumat, 07.00 - 16.00 WIB</p>
+                            </div>
+                            <div class="card-actions justify-end mt-6">
+                                <button class="btn btn-primary">Kirim Pesan</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Footer -->
+            <footer class="footer p-10 bg-gray-50 text-gray-600 dark:bg-gray-800 dark:text-gray-300">
+                <div>
+                    <span class="footer-title text-primary">Sekolah Kita</span> 
+                    <p>&copy; 2023 Sekolah Kita. Hak Cipta Dilindungi.</p>
+                    <p>Dibuat dengan ❤️ untuk pendidikan berkualitas</p>
+                </div> 
+                <div>
+                    <span class="footer-title text-primary">Social Media</span> 
+                    <div class="grid grid-flow-col gap-4">
+                        <a class="hover:text-primary transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+                        </a>
+                        <a class="hover:text-primary transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg>
+                        </a>
+                        <a class="hover:text-primary transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </footer>
+        </div> 
+
+        <!-- Sidebar -->
+        <div class="drawer-side">
+            <label for="my-drawer-3" class="drawer-overlay"></label> 
+            <ul class="menu p-4 w-80 h-full bg-white dark:bg-gray-800">
+                <li><a href="#beranda" class="text-gray-700 hover:text-primary dark:text-white">Beranda</a></li>
+                <li><a href="#tentang" class="text-gray-700 hover:text-primary dark:text-white">Tentang Kami</a></li>
+                <li><a href="#program" class="text-gray-700 hover:text-primary dark:text-white">Program Unggulan</a></li>
+                <li><a href="#fasilitas" class="text-gray-700 hover:text-primary dark:text-white">Fasilitas</a></li>
+                <li><a href="#kontak" class="text-gray-700 hover:text-primary dark:text-white">Kontak</a></li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
