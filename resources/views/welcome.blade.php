@@ -93,7 +93,9 @@
                             @endif
                         </div>
                         <div class="flex-1">
-                            <h1 class="text-5xl font-bold">Welcome to Your Dashboard!</h1>
+                            <div x-data="typewriter()" x-init="start()" class="inline-block overflow-hidden whitespace-nowrap border-r-4 border-blue-700 pr-2">
+                                <h1 class="text-5xl font-bold" x-text="text"></h1>
+                            </div>
                             <p class="py-6">
                                 Experience the power of modern analytics and project management in one place. Start
                                 managing your projects more efficiently today.
@@ -191,7 +193,7 @@
                         <div class="carousel relative w-full max-w-4xl max-h-96">
                             <!-- Slides -->
                             <div id="slide1" class="carousel-item relative w-full">
-                                <img src="{{ asset('img/project1.png') }}"
+                                <img src="{{ asset('img/project2.png') }}"
                                     class="w-full object-cover rounded-lg" />
                                 <div
                                     class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
@@ -200,7 +202,7 @@
                                 </div>
                             </div>
                             <div id="slide2" class="carousel-item relative w-full">
-                                <img src="{{ asset('img/project2.jpeg') }}"
+                                <img src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
                                     class="w-full object-cover rounded-lg" />
                                 <div
                                     class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
@@ -209,7 +211,7 @@
                                 </div>
                             </div>
                             <div id="slide3" class="carousel-item relative w-full">
-                                <img src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
+                                <img src="{{ asset('img/tes.jpg') }}"
                                     class="w-full object-cover rounded-lg" />
                                 <div
                                     class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
@@ -249,7 +251,7 @@
                         </div>
                     </section>
 
-                </center>
+         </center>
 
 
 
@@ -312,5 +314,46 @@
                 </div>
             </footer>
 </body>
+<script>
+    function typewriter() {
+        return {
+            text: '',
+            texts: [
+                'Welcome to our website 👋👋👋 ',
+                'Enjoy the experience 🗿'
+            ],
+            delay: 100,
+            deleteDelay: 100,
+            textIndex: 0,
+            start() {
+                this.type();
+            },
+            type() {
+                let currentIndex = 0;
+                const interval = setInterval(() => {
+                    this.text = this.texts[this.textIndex].slice(0, currentIndex + 1);
+                    currentIndex++;
 
+                    if (currentIndex === this.texts[this.textIndex].length) {
+                        clearInterval(interval);
+                        setTimeout(() => this.delete(), 2000);  // Wait before deleting
+                    }
+                }, this.delay);
+            },
+            delete() {
+                let currentIndex = this.texts[this.textIndex].length;
+                const interval = setInterval(() => {
+                    this.text = this.texts[this.textIndex].slice(0, currentIndex - 1);
+                    currentIndex--;
+
+                    if (currentIndex === 0) {
+                        clearInterval(interval);
+                        this.textIndex = (this.textIndex + 1) % this.texts.length;  // Move to next text
+                        setTimeout(() => this.type(), 500);  // Wait before typing again
+                    }
+                }, this.deleteDelay);
+            }
+        }
+    }
+</script>
 </html>
