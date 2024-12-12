@@ -186,59 +186,66 @@
 
                 {{-- Project  --}}
                 <center>
-                    <section class="flex flex-col items-center py-10 bg-gray-100 text-gray-800 w-full">
+                    <section class="flex flex-col items-center">
                         <!-- Carousel Container -->
-                        <div class="carousel relative w-full max-w-4xl border border-gray-300 rounded-lg">
-                            <!-- Slide 1 -->
-                            <div id="slide1"
-                                class="carousel-item relative w-full p-6 bg-white h-32 flex items-center justify-between">
-                                <div>
-                                    <h2 class="text-lg font-semibold">Slide 1: Overview</h2>
-                                    <p class="text-sm text-gray-600">Repository Owner: John Doe</p>
-                                    <p class="text-sm text-gray-600">Project: Awesome Project</p>
-                                </div>
-                                <a href="https://github.com/johndoe/awesome-project" target="_blank"
-                                    class="text-blue-500 underline">Go to Repository</a>
+                        <div class="carousel relative w-full max-w-4xl">
+                            <!-- Slides -->
+                            <div id="slide1" class="carousel-item relative w-full">
+                                <img src="{{ asset('img/project1.png') }}"
+                                    class="w-full object-cover rounded-lg" />
                                 <div
                                     class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                                    <a href="#slide3" class="btn btn-circle bg-gray-300 hover:bg-gray-400">❮</a>
-                                    <a href="#slide2" class="btn btn-circle bg-gray-300 hover:bg-gray-400">❯</a>
+                                    <a href="#slide4" class="btn btn-circle bg-gray-800/70 hover:bg-gray-800">❮</a>
+                                    <a href="#slide2" class="btn btn-circle bg-gray-800/70 hover:bg-gray-800">❯</a>
                                 </div>
                             </div>
+                            <div id="slide2" class="carousel-item relative w-full">
+                                <img src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
+                                    class="w-full object-cover rounded-lg" />
+                                <div
+                                    class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                                    <a href="#slide1" class="btn btn-circle bg-gray-800/70 hover:bg-gray-800">❮</a>
+                                    <a href="#slide3" class="btn btn-circle bg-gray-800/70 hover:bg-gray-800">❯</a>
+                                </div>
+                            </div>
+                            <div id="slide3" class="carousel-item relative w-full">
+                                <img src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
+                                    class="w-full object-cover rounded-lg" />
+                                <div
+                                    class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                                    <a href="#slide2" class="btn btn-circle bg-gray-800/70 hover:bg-gray-800">❮</a>
+                                    <a href="#slide4" class="btn btn-circle bg-gray-800/70 hover:bg-gray-800">❯</a>
+                                </div>
+                            </div>
+                            <div id="slide4" class="carousel-item relative w-full">
+                                <img src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
+                                    class="w-full object-cover rounded-lg" />
+                                <div
+                                    class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                                    <a href="#slide3" class="btn btn-circle bg-gray-800/70 hover:bg-gray-800">❮</a>
+                                    <a href="#slide1" class="btn btn-circle bg-gray-800/70 hover:bg-gray-800">❯</a>
+                                </div>
+                            </div>
+                        </div>
 
-                            <!-- Slide 2 -->
-                            <div id="slide2"
-                                class="carousel-item relative w-full p-6 bg-white h-32 flex items-center justify-between">
-                                <div>
-                                    <h2 class="text-lg font-semibold">Slide 2: Features</h2>
-                                    <p class="text-sm text-gray-600">Repository Owner: John Doe</p>
-                                    <p class="text-sm text-gray-600">Project: Awesome Project</p>
-                                </div>
-                                <a href="https://github.com/johndoe/awesome-project" target="_blank"
-                                    class="text-blue-500 underline">Go to Repository</a>
-                                <div
-                                    class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                                    <a href="#slide1" class="btn btn-circle bg-gray-300 hover:bg-gray-400">❮</a>
-                                    <a href="#slide3" class="btn btn-circle bg-gray-300 hover:bg-gray-400">❯</a>
-                                </div>
-                            </div>
-
-                            <!-- Slide 3 -->
-                            <div id="slide3"
-                                class="carousel-item relative w-full p-6 bg-white h-32 flex items-center justify-between">
-                                <div>
-                                    <h2 class="text-lg font-semibold">Slide 3: Summary</h2>
-                                    <p class="text-sm text-gray-600">Repository Owner: John Doe</p>
-                                    <p class="text-sm text-gray-600">Project: Awesome Project</p>
-                                </div>
-                                <a href="https://github.com/johndoe/awesome-project" target="_blank"
-                                    class="text-blue-500 underline">Go to Repository</a>
-                                <div
-                                    class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                                    <a href="#slide2" class="btn btn-circle bg-gray-300 hover:bg-gray-400">❮</a>
-                                    <a href="#slide1" class="btn btn-circle bg-gray-300 hover:bg-gray-400">❯</a>
-                                </div>
-                            </div>
+                        <!-- Thumbnail Navigation -->
+                        <div class="flex justify-center space-x-4 mt-4">
+                            <a href="#slide1" class="cursor-pointer">
+                                <img src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
+                                    class="w-20 h-12 object-cover rounded border border-gray-300 hover:ring-2 hover:ring-blue-500" />
+                            </a>
+                            <a href="#slide2" class="cursor-pointer">
+                                <img src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
+                                    class="w-20 h-12 object-cover rounded border border-gray-300 hover:ring-2 hover:ring-blue-500" />
+                            </a>
+                            <a href="#slide3" class="cursor-pointer">
+                                <img src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
+                                    class="w-20 h-12 object-cover rounded border border-gray-300 hover:ring-2 hover:ring-blue-500" />
+                            </a>
+                            <a href="#slide4" class="cursor-pointer">
+                                <img src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
+                                    class="w-20 h-12 object-cover rounded border border-gray-300 hover:ring-2 hover:ring-blue-500" />
+                            </a>
                         </div>
                     </section>
 
