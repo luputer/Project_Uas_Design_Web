@@ -188,7 +188,7 @@
                 <center>
                     <section class="flex flex-col items-center">
                         <!-- Carousel Container -->
-                        <div class="carousel relative w-full max-w-4xl">
+                        <div class="carousel relative w-full max-w-4xl max-h-96">
                             <!-- Slides -->
                             <div id="slide1" class="carousel-item relative w-full">
                                 <img src="{{ asset('img/project1.png') }}"
@@ -200,7 +200,7 @@
                                 </div>
                             </div>
                             <div id="slide2" class="carousel-item relative w-full">
-                                <img src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
+                                <img src="{{ asset('img/project2.jpeg') }}"
                                     class="w-full object-cover rounded-lg" />
                                 <div
                                     class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
