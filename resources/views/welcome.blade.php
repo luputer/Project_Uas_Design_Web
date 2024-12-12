@@ -61,9 +61,16 @@
     <!-- Hero Section -->
     <div class="hero min-h-[70vh] bg-base-200">
         <div class="hero-content flex-col lg:flex-row-reverse gap-8">
-            <div class="flex-1 grid grid-cols-2 gap-4 max-w-xl">
-                <img src="https://placehold.co/600x400/png" class="rounded-lg shadow-2xl" alt="Dashboard Preview 1" />
-                <img src="https://placehold.co/600x400/png" class="rounded-lg shadow-2xl" alt="Dashboard Preview 2" />
+            <div class="flex-1 grid grid-cols-2 gap-4 max-w-xl w-96">  
+                @if($personalBrandData->isEmpty())  
+                    <p>No images available.</p>  
+                @else  
+                    @foreach($personalBrandData as $data)  
+                        <div class="relative">  
+                            <img src="{{ asset('storage/' . $data->image) }}" alt="Image" class="rounded-lg shadow-2xl bg-cover w-full h-full object-cover" />  
+                        </div>  
+                    @endforeach  
+                @endif  
             </div>
             <div class="flex-1">
                 <h1 class="text-5xl font-bold">Welcome to Your Dashboard!</h1>
@@ -103,7 +110,7 @@
                 {title: 'Program Kepemimpinan', desc: 'Mengembangkan soft skills dan jiwa kepemimpinan siswa melalui berbagai kegiatan.'},
                 {title: 'Ekstrakurikuler Beragam', desc: 'Menyediakan berbagai kegiatan ekstrakurikuler untuk mengembangkan bakat dan minat siswa.'}
             ]" :key="index">
-                <div class="carousel-item w-full" x-show="activeSlide === index + 1">
+                <div class="carousel-item w-full max-w-7xl mx-auto" x-show="activeSlide === index + 1">
                     <div class="card bg-blue-50 dark:bg-gray-700 shadow-lg mx-4">
                         <div class="card-body">
                             <h3 class="card-title text-primary dark:text-white" x-text="slide.title"></h3>
@@ -126,7 +133,7 @@
     </section>
 
     <!-- Facilities Section -->
-    <section id="fasilitas" class="py-16 bg-white dark:bg-gray-800 rounded-lg shadow-sm w-full mx-auto">
+    <section id="fasilitas" class="py-16 bg-white dark:bg-gray-800 rounded-lg shadow-sm w-full mx-auto p-5">
         <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">Fasilitas</h2>
         <div class="join join-vertical mx-auto w-full">
             <div class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-700">
