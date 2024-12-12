@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KPU Kabupaten - Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-blue-700 text-white p-4">
+        <div class="container mx-auto">
+            <h1 class="text-2xl font-bold">KPU Kabupaten</h1>
+            <p class="text-sm">Sistem Informasi Pendaftaran Calon Anggota Legislatif</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto py-8">
+        <section class="text-center mb-12">
+            <div x-data="typewriter()" x-init="start()" class="inline-block overflow-hidden whitespace-nowrap border-r-4 border-blue-700 pr-2">
+                <h1 class="text-5xl font-bold" x-text="text"></h1>
+            </div>
+        </section>
+
+        <!-- Your Other Content Here -->
+
+    </main>
+
+    <footer class="bg-gray-200 p-4 mt-12">
+        <div class="container mx-auto text-center text-gray-600">
+            <p>&copy; {{ date('Y') }} KPU Kabupaten. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <script>
+        function typewriter() {
+            return {
+                text: '',
+                texts: [
+                    'Welcome to our website',
+                    'Enjoy the experience 🗿'
+                ],
+                delay: 100,
+                deleteDelay: 100,
+                textIndex: 0,
+                start() {
+                    this.type();
+                },
+                type() {
+                    let currentIndex = 0;
+                    const interval = setInterval(() => {
+                        this.text = this.texts[this.textIndex].slice(0, currentIndex + 1);
+                        currentIndex++;
+
+                        if (currentIndex === this.texts[this.textIndex].length) {
+                            clearInterval(interval);
+                            setTimeout(() => this.delete(), 2000);  // Wait before deleting
+                        }
+                    }, this.delay);
+                },
+                delete() {
+                    let currentIndex = this.texts[this.textIndex].length;
+                    const interval = setInterval(() => {
+                        this.text = this.texts[this.textIndex].slice(0, currentIndex - 1);
+                        currentIndex--;
+
+                        if (currentIndex === 0) {
+                            clearInterval(interval);
+                            this.textIndex = (this.textIndex + 1) % this.texts.length;  // Move to next text
+                            setTimeout(() => this.type(), 500);  // Wait before typing again
+                        }
+                    }, this.deleteDelay);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
