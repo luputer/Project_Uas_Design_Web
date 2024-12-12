@@ -20,7 +20,11 @@ return new class extends Migration
             $table->string('linkPortfolio');
             $table->text('goal');
             $table->String('phone');
+<<<<<<< Updated upstream
             $table->String('image');
+=======
+            $table->String('foto');
+>>>>>>> Stashed changes
             $table->timestamps();
         });
     }

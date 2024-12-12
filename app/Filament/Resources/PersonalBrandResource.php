@@ -41,18 +41,21 @@ class PersonalBrandResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([
-                TextColumn::make('nama')->label('Nama'),
-                TextColumn::make('nim')->label('NIM'),
-                TextColumn::make('email')->label('Email'),
-                TextColumn::make('github')->label('GitHub'),
-                TextColumn::make('linkPortfolio')->label('Link Portfolio'),
-                TextColumn::make('goal')->label('Goal'),
-                TextColumn::make('phone')->label('Phone'),
-                ImageColumn::make('image')->label('Image'),
-                TextColumn::make('created_at')->label('Dibuat Pada')->dateTime(),
-                TextColumn::make('updated_at')->label('Diperbarui Pada')->dateTime(),
-            ])
+        ->columns([
+            TextColumn::make('nama')->label('Nama'),
+            TextColumn::make('nim')->label('NIM'),
+            TextColumn::make('email')->label('Email'),
+            TextColumn::make('github')->label('GitHub'),
+            TextColumn::make('linkPortfolio')->label('Link Portfolio'),
+            TextColumn::make('goal')->label('Goal'),
+            TextColumn::make('phone')->label('Phone'),
+            ImageColumn::make('image')
+                ->label('Image')
+                ->url(fn ($record) => asset('storage/' . $record->image)), // Generate the full URL
+        ])
+        
+        
+        
             ->filters([
                 //
             ])
