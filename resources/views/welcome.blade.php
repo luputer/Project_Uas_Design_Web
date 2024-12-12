@@ -1,26 +1,15 @@
 <!DOCTYPE html>
 <html lang="id" x-data="{ darkMode: localStorage.getItem('darkMode') === 'true' }" 
       x-init="$watch('darkMode', val => localStorage.setItem('darkMode', val))" 
-      :class="{ 'dark': darkMode }">
-      <html lang="en" x-data="{ 
-        darkMode: localStorage.getItem('darkMode') === 'true',
-        toggleDarkMode() {
-            this.darkMode = !this.darkMode;
-            localStorage.setItem('darkMode', this.darkMode);
-        }
-    }" :data-theme="darkMode ? 'dark' : 'light'">
-    <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.2/dist/full.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
+      :class="{ 'dark': darkMode }" class="scroll-smooth">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selamat Datang di SIPCAL</title>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     @vite('resources/css/app.css')
     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -90,15 +79,13 @@
                 <p class="py-6">
                     Experience the power of modern analytics and project management in one place. Start managing your projects more efficiently today.
                 </p>
-                <button class="btn btn-primary">
-                    <a href="/admin/login">Get Started</a>
-                </button>
+                <button class="btn btn-primary">Get Started</button>
             </div>
         </div>
     </div>
 
     <!-- About Section -->
-    <section id="tentang" class="py-16 bg-white dark:bg-gray-800 rounded-lg shadow-sm my-8">
+    <section id="tentang" class="py-10 bg-white dark:bg-gray-800 rounded-lg shadow-sm my-8">
         <div class="max-w-4xl mx-auto px-6">
             <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">Tentang Kami</h2>
             <div class="prose prose-lg max-w-none text-gray-600 dark:text-gray-300">
@@ -114,80 +101,45 @@
             </div>
         </div>
     </section>
-    @if($personalBrandData->isEmpty())  
-    <div class="flex items-center justify-evenly"> <!-- Center the message -->  
-        <p>No data available.</p>  
-    </div>  
-@else  
-    <div class="flex items-center justify-evenly ml-52 "> <!-- betjustify-between the grid of cards -->  
-        <div class="grid grid-cols-2 md:grid-cols-3 b gap-6">  
+
+    <div class="flex items-center justify-evenly  "> <!-- betjustify-between the grid of cards -->  
+        <div class="grid grid-cols-2 md:grid-cols-2 gap-6"> 
             @foreach($personalBrandData as $data)  
-                <div class="card bg-base-100 shadow-xl">  
-                    <div class="card-body">  
-                        <h2 class="card-title">{{ $data->nama }}</h2>  
-                        <ul class="list-disc list-inside">  
-                            <li>{{ $data->nim }}</li>  
-                            <li>{{ $data->email }}</li>  
-                            <li>{{ $data->goal }}</li>  
-                            <li>{{ $data->phone }}</li>  
-                        </ul>  
-                    </div>  
-                </div>  
+            <div class="card bg-base-100 shadow-xl w-full dark:text-white dark:bg-gray-700">
+                <div class="card-body">
+                    <h2 class="card-title"> {{ $data->nama }}</h2>
+                    <ul class="list-disc list-inside">
+                        <li class="m-1"><i class="fa fa-github" style="font-size:24px"></i><a target="_blank" href="{{ $data->github }}" class="ml-1">{{ $data->github }}</a></li>
+                        <li class="m-1"><i class="fa fa-chain-broken" style="font-size:24px"></i><a target="_blank" class="ml-1" href="{{ $data->linkPortfolio }}">{{ $data->linkPortfolio }}</a></li>
+                        <li class="m-1">Bug fixes and optimizations</li>
+                    </ul>
+                </div>
+            </div>
             @endforeach  
         </div>  
     </div>  
-@endif
+    
 
     <!-- Facilities Section -->
     <section id="fasilitas" class="py-16 mt-10 bg-white dark:bg-gray-900 rounded-lg shadow-sm w-full mx-auto p-5">
-        <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">QNA</h2>
+        <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">Project</h2>
         <div class="join join-vertical mx-auto w-full">
             <div class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
                 <input type="radio" name="facilities" checked /> 
                 <div class="collapse-title text-xl font-medium text-gray-800 dark:text-white">
-                    Sejak kapan suka ngoding by Surya Arinaldi
+                    Perpustakaan Digital
                 </div>
                 <div class="collapse-content text-gray-600 dark:text-gray-300"> 
-                    <p>kalo dilang suka ngak juga karna awalnya, saya itu suka main game dan, mulai itu pas awal semester 1, saat itu ada biasiswa coding gratis dari
-                        Codepolitan, dan dicoding, dari situ saat saya ambil pertama kali saya belajar tentang HTML CSS JS, gitu terus keterusan sampe sekarang, sampe belajar REACT, LARAVEL, MERN STACK,<br>
-                        kalo di bilang suka nya, saat memecahkan masalah dan dunia web itu luas, sekali.
-                    </p>
+                    <p>Akses ke ribuan buku dan sumber belajar digital.</p>
                 </div>
             </div>
             <div class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
                 <input type="radio" name="facilities" /> 
                 <div class="collapse-title text-xl font-medium text-gray-800 dark:text-white">
-                    Impianya mau jadi apa by saidi
+                    Laboratorium Sains
                 </div>
                 <div class="collapse-content text-gray-600 dark:text-gray-300"> 
-                    <p>saya kepengen punya sesatu yang berharga, dan bisa mem</p>
-                </div>
-            </div>
-            <div class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
-                <input type="radio" name="facilities" /> 
-                <div class="collapse-title text-xl font-medium text-gray-800 dark:text-white">
-                    Lapangan Olahraga
-                </div>
-                <div class="collapse-content text-gray-600 dark:text-gray-300"> 
-                    <p>Area luas untuk berbagai aktivitas olahraga dan kegiatan outdoor.</p>
-                </div>
-            </div>
-            <div class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
-                <input type="radio" name="facilities" /> 
-                <div class="collapse-title text-xl font-medium text-gray-800 dark:text-white">
-                    Lapangan Olahraga
-                </div>
-                <div class="collapse-content text-gray-600 dark:text-gray-300"> 
-                    <p>Area luas untuk berbagai aktivitas olahraga dan kegiatan outdoor.</p>
-                </div>
-            </div>
-            <div class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
-                <input type="radio" name="facilities" /> 
-                <div class="collapse-title text-xl font-medium text-gray-800 dark:text-white">
-                    Lapangan Olahraga
-                </div>
-                <div class="collapse-content text-gray-600 dark:text-gray-300"> 
-                    <p>Area luas untuk berbagai aktivitas olahraga dan kegiatan outdoor.</p>
+                    <p>Fasilitas lengkap untuk eksperimen dan penelitian ilmiah.</p>
                 </div>
             </div>
             <div class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
@@ -201,6 +153,7 @@
             </div>
         </div>
     </section>
+    
 
     <!-- Contact Section -->
     <section id="kontak" class="py-16">
@@ -210,7 +163,7 @@
                 <div class="space-y-4 text-gray-600 dark:text-gray-300">
                     <p><strong class="text-gray-800 dark:text-white">Alamat:</strong> Jl. Pendidikan No. 123, Kota Sejahtera</p>
                     <p><strong class="text-gray-800 dark:text-white">Telepon:</strong> (021) 1234-5678</p>
-                    <p><strong class="text-gray-800 dark:text-white">Email:</strong>namaddada</p>
+                    <p><strong class="text-gray-800 dark:text-white">Email:</strong> info@sekolahkita.edu</p>
                     <p><strong class="text-gray-800 dark:text-white">Jam Operasional:</strong> Senin - Jumat, 07.00 - 16.00 WIB</p>
                 </div>
                 <div class="card-actions justify-end mt-6">
@@ -220,53 +173,26 @@
         </div>
     </section>
 </main>
-            <!-- Footer -->
-            <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
-                <div class="grid grid-flow-col gap-4">
-                    <a class="link link-hover">About us</a>
-                    <a class="link link-hover">Contact</a>
-                    <a class="link link-hover">Jobs</a>
-                    <a class="link link-hover">Press kit</a>
-                </div>
-                <div>
-                    <div class="grid grid-flow-col gap-4">
-                        <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                class="fill-current">
-                                <path
-                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
-                                </path>
-                            </svg></a>
-                        <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                class="fill-current">
-                                <path
-                                    d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z">
-                                </path>
-                            </svg></a>
-                        <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                class="fill-current">
-                                <path
-                                    d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z">
-                                </path>
-                            </svg></a>
-                    </div>
-                </div>
-                <div>
-                    <p>Copyright © 2023 - All rights reserved by ACME Industries Ltd</p>
-                </div>
-            </footer>
-        </div> 
 
-        <!-- Sidebar -->
-        <div class="drawer-side">
-            <label for="my-drawer-3" class="drawer-overlay"></label> 
-            <ul class="menu p-4 w-80 h-full bg-white dark:bg-gray-800">
-                <li><a href="#beranda" class="text-gray-700 hover:text-primary dark:text-white">Beranda</a></li>
-                <li><a href="#tentang" class="text-gray-700 hover:text-primary dark:text-white">Tentang Kami</a></li>
-                <li><a href="#program" class="text-gray-700 hover:text-primary dark:text-white">Program Unggulan</a></li>
-                <li><a href="#fasilitas" class="text-gray-700 hover:text-primary dark:text-white">Fasilitas</a></li>
-                <li><a href="#kontak" class="text-gray-700 hover:text-primary dark:text-white">Kontak</a></li>
-            </ul>
+
+            <!-- Footer -->
+    <footer class="footer footer-center dark:bg-gray-800 p-10 bg-base-200 text-base-content rounded">
+        <div class="grid grid-flow-col gap-4 dark:text-white">
+            <a class="link link-hover">About us</a> 
+            <a class="link link-hover">Contact</a> 
+            <a class="link link-hover">Jobs</a> 
+            <a class="link link-hover">Press kit</a>
+        </div> 
+        <div>
+            <div class="grid grid-flow-col gap-4 dark:text-white">
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg></a> 
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg></a> 
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg></a>
+            </div>
+        </div> 
+        <div>
+            <p class="">Copyright © 2023 - All rights reserved by ACME Industries Ltd</p>
         </div>
-    </div>
+    </footer>
 </body>
 </html>
