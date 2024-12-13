@@ -54,8 +54,7 @@
                     <ul class="menu menu-horizontal">
                         <li><a href="#beranda" class="hover:text-primary">Beranda</a></li>
                         <li><a href="#tentang" class="hover:text-primary">Tentang Kami</a></li>
-                        <li><a href="#program" class="hover:text-primary">Program Unggulan</a></li>
-                        <li><a href="#fasilitas" class="hover:text-primary">Fasilitas</a></li>
+                        <li><a href="#fasilitas" class="hover:text-primary">QNA</a></li>
                         <li><a href="#kontak" class="hover:text-primary">Kontak</a></li>
                     </ul>
                 </div>
@@ -101,7 +100,7 @@
                                 Experience the power of modern analytics and project management in one place. Start
                                 managing your projects more efficiently today.
                             </p>
-                            <button class="btn btn-primary">Get Started</button>
+                            <a href="/admin/login"  class="btn btn-primary"  >Get Started</a>
                         </div>
                     </div>
                 </div>
@@ -112,9 +111,9 @@
                         <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">Tentang Kami</h2>
                         <div class="prose prose-lg max-w-none text-gray-600 dark:text-gray-300">
                             <p class="mb-6">
-                                Sekolah Kita adalah lembaga pendidikan yang berdedikasi untuk mengembangkan potensi
-                                setiap siswa. Dengan kurikulum yang komprehensif dan fasilitas modern, kami berkomitmen
-                                untuk menciptakan lingkungan belajar yang inspiratif dan inovatif.
+                              kami adalah mahaiswa poliban semester 3 yang suka ngoding dan suka Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae veritatis, et exercitationem aspernatur distinctio expedita unde quia tempore, nemo eius harum officia similique debitis esse cupiditate? Veritatis quas iste porro.
+                              Accusamus et cum eius repellat, fugit, dolore odit aut nobis modi explicabo aspernatur. Quaerat est at suscipit fugit cupiditate molestiae possimus necessitatibus minus laboriosam aut asperiores et aliquam, porro illum.
+                              Asperiores molestias eaque, sit commodi inventore ratione velit itaque! Corrupti, commodi quasi deserunt a eum nihil modi molestias iusto nostrum necessitatibus cum minima doloribus praesentium excepturi possimus officia numquam iste?
                             </p>
                             <ul class="list-disc list-inside space-y-2">
                                 <li>Didirikan sejak tahun 1990</li>
@@ -204,10 +203,13 @@
                             class="collapse collapse-arrow join-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
                             <input type="radio" name="facilities" />
                             <div class="collapse-title text-xl font-medium text-gray-800 dark:text-white">
-                                Lapangan Olahraga
+                                Apa bahasa pemerograman yang paling di sukai dan kenapa ?
                             </div>
                             <div class="collapse-content text-gray-600 dark:text-gray-300">
-                                <p>Area luas untuk berbagai aktivitas olahraga dan kegiatan outdoor.</p>
+                                <p> Bahasa pemrograman yang paling disukai saya kurang tahu pasti, tetapi karena sering menggunakan JavaScript, mungkin saya memilih JavaScript karena dapat digunakan di berbagai platform. <br>
+                                    <span
+                                    class=" badge badge-md p-1 font-semibold dark:text-dark text-light    badge-primary">~By
+                                    Saidi</span></p>
                             </div>
                         </div>
                     </div>
@@ -238,8 +240,8 @@
                                 </div>
                             </div>
                             <div id="slide3" class="carousel-item relative w-full">
-                                <img src="{{ asset('img/project3.jpg') }}"
-                                    class="w-full object-cover rounded-lg" />
+                                
+                                <img src="{{ asset('img/project3.jpg') }}" class="w-full object-cover rounded-lg" />
                                 <div
                                     class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
                                     <a href="#slide2" class="btn btn-circle bg-gray-800/70 hover:bg-gray-800">❮</a>
@@ -279,28 +281,31 @@
                     </section>
 
                 </center>
-
-
-
-
                 <!-- Contact Section -->
                 <section id="kontak" class="py-16">
                     <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">Hubungi Kami</h2>
                     <div class="card bg-white dark:bg-gray-700 shadow-xl max-w-2xl mx-auto">
-                        <div class="card-body">
-                            <div class="space-y-4 text-gray-600 dark:text-gray-300">
-                                <p><strong class="text-gray-800 dark:text-white">Alamat:</strong> Jl. Pendidikan No.
-                                    123, Kota Sejahtera</p>
-                                <p><strong class="text-gray-800 dark:text-white">Telepon:</strong> (021) 1234-5678</p>
-                                <p><strong class="text-gray-800 dark:text-white">Email:</strong> info@sekolahkita.edu
-                                </p>
-                                <p><strong class="text-gray-800 dark:text-white">Jam Operasional:</strong> Senin -
-                                    Jumat, 07.00 - 16.00 WIB</p>
-                            </div>
-                            <div class="card-actions justify-end mt-6">
-                                <button class="btn btn-primary">Kirim Pesan</button>
-                            </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            @foreach($personalBrandData as $data)
+                                <div class="card-bod rounded-lg shadow-md p-6">
+                                    <div class="space-y-4 text-gray-600 dark:text-gray-300">
+                                        <p><strong class="text-gray-800 dark:text-white">Nama:</strong> 
+                                            {{ $data->nama }}
+                                        </p>
+                                        <p><strong class="text-gray-800 dark:text-white">Email:</strong>
+                                            {{ $data->email }}
+                                        </p>
+                                        <p><strong class="text-gray-800 dark:text-white">phone:</strong> 
+                                            {{ $data->phone }}</p>
+                                    </div>
+                                    <div class="card-actions justify-end mt-6">
+                                        <button class="btn btn-primary">Kirim Pesan</button>
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
+                        
+                       
                     </div>
                 </section>
             </main>
