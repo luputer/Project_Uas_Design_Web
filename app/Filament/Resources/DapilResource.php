@@ -17,6 +17,8 @@ class DapilResource extends Resource
 {
     protected static ?string $model = Dapil::class;
 
+    protected static ?string $navigationLabel = 'Dapil';
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
@@ -43,7 +45,7 @@ class DapilResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-          ->columns([
+            ->columns([
                 // Kolom untuk nama dapil
                 Tables\Columns\TextColumn::make('nama_dapil')
                     ->label('Nama Dapil')

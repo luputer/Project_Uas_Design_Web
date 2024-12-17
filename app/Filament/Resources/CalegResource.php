@@ -17,6 +17,8 @@ class CalegResource extends Resource
 {
     protected static ?string $model = Caleg::class;
 
+    protected static ?string $navigationLabel = 'Caleg';
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form

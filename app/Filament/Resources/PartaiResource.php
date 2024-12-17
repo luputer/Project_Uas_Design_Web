@@ -17,6 +17,8 @@ class PartaiResource extends Resource
 {
     protected static ?string $model = Partai::class;
 
+    protected static ?string $navigationLabel = 'Partai';
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form

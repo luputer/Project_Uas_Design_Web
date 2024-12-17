@@ -12,8 +12,9 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\DokumenCalegResource\Pages;
@@ -22,6 +23,7 @@ use App\Filament\Resources\DokumenCalegResource\RelationManagers;
 class DokumenCalegResource extends Resource
 {
     protected static ?string $model = DokumenCaleg::class;
+    protected static ?string $navigationLabel = 'Dokumen';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -44,7 +46,7 @@ class DokumenCalegResource extends Resource
             ->columns([
                 TextColumn::make('caleg.nama_lengkap')->label('Nama Caleg'),
                 TextColumn::make('jenis_dokumen')->label('Jenis Dokumen'),
-                TextColumn::make('file_path')->label('Path File'),
+                ImageColumn::make('file_path')->label('dokumen'),
                 TextColumn::make('status_verifikasi')
                     ->label('Status Verifikasi')
                     ->getStateUsing(function ($record) {

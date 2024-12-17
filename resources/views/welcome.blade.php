@@ -49,7 +49,7 @@
                         </svg>
                     </label>
                 </div>
-                <div class="flex-1 px-2 mx-2 text-primary font-bold text-xl">SIPCAL</div>
+                <div class="flex-1 px-2 mx-2 text-primary font-bold text-xl">Sicapil</div>
                 <div class="flex-none hidden lg:block">
                     <ul class="menu menu-horizontal">
                         <li><a href="#beranda" class="hover:text-primary">Beranda</a></li>
@@ -146,7 +146,7 @@
                                     <li class="m-1"><i class="fa fa-chain-broken" style="font-size:24px"></i><a
                                             target="_blank" class="ml-1"
                                             href="{{ $data->linkPortfolio }}">{{ $data->linkPortfolio }}</a></li>
-                                    <li class="m-1">Bug fixes and optimizations</li>
+                                    <li class="m-1">{{ $data->goal }}</li>
                                 </ul>
                             </div>
                         </div>
