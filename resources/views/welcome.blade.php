@@ -110,24 +110,18 @@
                     <div class="max-w-4xl mx-auto px-6">
                         <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">Tentang Kami</h2>
                         <div class="prose prose-lg max-w-none text-gray-600 dark:text-gray-300">
-                            <p class="mb-6">
-                                kami adalah mahaiswa poliban semester 3 yang suka ngoding dan suka Lorem ipsum dolor sit
-                                amet consectetur adipisicing elit. Recusandae veritatis, et exercitationem aspernatur
-                                distinctio expedita unde quia tempore, nemo eius harum officia similique debitis esse
-                                cupiditate? Veritatis quas iste porro.
-                                Accusamus et cum eius repellat, fugit, dolore odit aut nobis modi explicabo aspernatur.
-                                Quaerat est at suscipit fugit cupiditate molestiae possimus necessitatibus minus
-                                laboriosam aut asperiores et aliquam, porro illum.
-                                Asperiores molestias eaque, sit commodi inventore ratione velit itaque! Corrupti,
-                                commodi quasi deserunt a eum nihil modi molestias iusto nostrum necessitatibus cum
-                                minima doloribus praesentium excepturi possimus officia numquam iste?
-                            </p>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>Didirikan sejak tahun 1990</li>
-                                <li>Akreditasi A</li>
-                                <li>Lebih dari 500 alumni sukses</li>
-                                <li>Staf pengajar berkualifikasi tinggi</li>
-                            </ul>
+                            <div class="prose prose-lg max-w-none text-gray-600 dark:text-gray-300">
+                                <p class="mb-6">
+                                    Kami adalah mahasiswa semester 3 di Poliban yang memiliki hasrat besar terhadap dunia programming dan ngoding. Selain itu, kami juga suka mengeksplorasi berbagai teknologi baru dan tantangan yang ada di dunia IT. Kami percaya bahwa dengan belajar dan berkolaborasi, kita dapat menciptakan solusi inovatif yang berdampak positif bagi masyarakat.
+                                </p>
+                                <p class="mb-6">
+                                    Dalam perjalanan akademik kami, kami sering berpartisipasi dalam berbagai proyek dan kegiatan yang membantu kami mengasah keterampilan teknis dan keterampilan kerja tim. Kami senang berbagi pengetahuan dan pengalaman dengan sesama, serta selalu berusaha untuk menjadi lebih baik setiap hari.
+                                </p>
+                                <p class="mb-6">
+                                    Komitmen kami untuk belajar dan berkembang tidak hanya berhenti di dalam kelas. Kami aktif terlibat dalam komunitas pengembang dan mengikuti berbagai workshop serta seminar untuk tetap up-to-date dengan perkembangan teknologi terkini. Kami yakin bahwa masa depan ada di tangan mereka yang terus belajar dan tidak takut untuk berinovasi.
+                                </p>
+                            </div>
+                            
                         </div>
                     </div>
                 </section>
