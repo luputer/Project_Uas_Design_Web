@@ -22,7 +22,7 @@ class PersonalBrandResource extends Resource
 {
     protected static ?string $model = PersonalBrand::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user';
 
     public static function form(Form $form): Form
     {
@@ -41,19 +41,19 @@ class PersonalBrandResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-        ->columns([
-            TextColumn::make('nama')->label('Nama'),
-            TextColumn::make('nim')->label('NIM'),
-            TextColumn::make('email')->label('Email'),
-            TextColumn::make('github')->label('GitHub'),
-            TextColumn::make('linkPortfolio')->label('Link Portfolio'),
-            TextColumn::make('goal')->label('Goal'),
-            TextColumn::make('phone')->label('Phone'),
-            ImageColumn::make('image')->label('Image')
-        ])
-        
-        
-        
+            ->columns([
+                TextColumn::make('nama')->label('Nama'),
+                TextColumn::make('nim')->label('NIM'),
+                TextColumn::make('email')->label('Email'),
+                TextColumn::make('github')->label('GitHub'),
+                TextColumn::make('linkPortfolio')->label('Link Portfolio'),
+                TextColumn::make('goal')->label('Goal'),
+                TextColumn::make('phone')->label('Phone'),
+                ImageColumn::make('image')->label('Image')
+            ])
+
+
+
             ->filters([
                 //
             ])
